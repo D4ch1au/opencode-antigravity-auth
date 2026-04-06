@@ -12,7 +12,8 @@ import {
 import { dirname, join } from "node:path";
 import { homedir } from "node:os";
 import { randomBytes } from "node:crypto";
-import lockfile from "proper-lockfile";
+import * as _lockfileMod from "proper-lockfile";
+const lockfile = (_lockfileMod as any).default ?? _lockfileMod;
 import type { HeaderStyle } from "../constants";
 import { createLogger } from "./logger";
 
